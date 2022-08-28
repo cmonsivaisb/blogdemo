@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `surname`, `email`, `role`, `password`) VALUES
-(1, 'carlos', 'monsivais', 'carlos@gmail.com', 1, '1234');
+(1, 'carlos', 'monsivais', 'carlos@gmail.com', 5, '1234');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
