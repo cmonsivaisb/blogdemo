@@ -14,7 +14,8 @@ $is_jwt_valid = is_jwt_valid($bearer_token);
 $role=jwt_role($bearer_token);
 
 if($is_jwt_valid && $role>=2) {
-	$sql = "SELECT * FROM posts";
+	$sql = "SELECT posts.title,posts.description,posts.date,users.username,users.role FROM posts INNER JOIN users
+	ON posts.userId = users.id;";
 	$results = dbQuery($sql);
 
 	$rows = array();
