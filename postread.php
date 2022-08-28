@@ -11,8 +11,9 @@ $bearer_token = get_bearer_token();
 
 
 $is_jwt_valid = is_jwt_valid($bearer_token);
+$role=jwt_role($bearer_token);
 
-if($is_jwt_valid) {
+if($is_jwt_valid && $role>=2) {
 	$sql = "SELECT * FROM posts";
 	$results = dbQuery($sql);
 

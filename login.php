@@ -19,9 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$row = dbFetchAssoc($result);
 		
 		$username = $row['username'];
+		$id = $row['id'];
+		$role=$row['role'];
 		
 		$headers = array('alg'=>'HS256','typ'=>'JWT');
-		$payload = array('username'=>$username, 'exp'=>(time() + 60));
+		$payload = array('username'=>$username, 'exp'=>(time() + 60000),'role'=>$role,'id'=>$id);
 
 		$jwt = generate_jwt($headers, $payload);
 		

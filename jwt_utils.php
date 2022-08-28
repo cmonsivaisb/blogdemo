@@ -35,6 +35,23 @@ function is_jwt_valid($jwt, $secret = 'secret') {
 		return TRUE;
 	}
 }
+function jwt_role($jwt, $secret = 'secret') {
+	$tokenParts = explode('.', $jwt);
+	$payload = base64_decode($tokenParts[1]);
+
+	$role = json_decode($payload)->role;
+
+	return $role;
+}
+function jwt_user($jwt, $secret = 'secret') {
+	$tokenParts = explode('.', $jwt);
+	$payload = base64_decode($tokenParts[1]);
+
+	$user = json_decode($payload)->id;
+
+	return $user;
+}
+
 
 function base64url_encode($data) {
     return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
